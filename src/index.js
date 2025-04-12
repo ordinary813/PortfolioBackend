@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: 'https://portfolio-frontend-mr97mikzx-ordinary813s-projects.vercel.app/' }));
+app.use(cors({ origin: 'https://portfolio-frontend-ordinary813s-projects.vercel.app/' }));
 app.use(helmet());
 app.use(compression());
 
