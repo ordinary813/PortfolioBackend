@@ -13,15 +13,21 @@ import compression from 'compression';
 dotenv.config();
 
 const app = express();
-
+const allowedOrigins = [
+    'https://portfolio-frontend-ordinary813s-projects.vercel.app',
+    'portfolio-frontend-ordinary813s-projects.vercel.app',
+    'http://portfolio-frontend-ordinary813s-projects.vercel.app',
+]
 app.use(express.json());
-app.use(cors({ origin: 'https://portfolio-frontend-ordinary813s-projects.vercel.app/' }));
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true,
+}));
 app.use(helmet());
 app.use(compression());
 
-const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key';
-const ADMIN_KEY = process.env.ADMIN_KEY || 'secret-key';
-const PORT = process.env.PORT || 4999;
+const SECRET_KEY = process.env.SECRET_KEY;
+const PORT = process.env.PORT;
 
 connectDB();
 
